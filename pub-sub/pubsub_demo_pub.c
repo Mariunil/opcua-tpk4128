@@ -13,7 +13,7 @@ The publisher contain the information model of the sensor, which is only contain
 the double representening the temperature measurement. 
 */
 
-#include "../pub-sub/open62541.h"
+#include "../open62541.h"
 #include <signal.h>
 #include <pthread.h>
 #include <time.h>

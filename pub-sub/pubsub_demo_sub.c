@@ -101,10 +101,9 @@ int main(int argc, char **argv)
       UA_STRING("http://opcfoundation.org/UA-Profile/Transport/pubsub-udp-uadp");
   connectionConfig.enabled = UA_TRUE;
 
-  UA_NetworkAddressUrlDataType networkAddressUrl =
-      {UA_STRING_NULL, UA_STRING("opc.udp://224.0.0.22:4840/")};
-  UA_Variant_setScalar(&connectionConfig.address, &networkAddressUrl,
-                        &UA_TYPES[UA_TYPES_NETWORKADDRESSURLDATATYPE]);
+  // Ip address 127.0.0.1 = this computer. Change to Raspberry Pi IP adress
+  UA_NetworkAddressUrlDataType networkAddressUrl = {UA_STRING_NULL, UA_STRING("opc.udp://224.0.0.22:4840/")};                                                            
+  UA_Variant_setScalar(&connectionConfig.address, &networkAddressUrl, &UA_TYPES[UA_TYPES_NETWORKADDRESSURLDATATYPE]);
 
   // Creating pubsubchannel in the udp layer 
   UA_PubSubChannel *psc = udpLayer.createPubSubChannel(&connectionConfig);
