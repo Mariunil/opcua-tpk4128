@@ -4,8 +4,7 @@ These demos implements client-server and publisher-subscriber OPC UA communicati
 
 ## Installation guide
 
-The client-server demos can be run without any installation by linking to the amalgated open62541.c/.h library files 
-present in the repo.
+The client-server demos can be run without any installation by linking to the amalgamated open62541.c/.h library files present in the repo.
 
 Navigate to /home/--username--/ or other preferable location and clone this repo: 
 
@@ -16,11 +15,11 @@ If you don't have git installed:
 
 
 <br />
-The pub-sub demos require the open62541 to be installed.
-<br />
+The pub-sub demos require the open62541 to be installed.   
 
 
-**Installation of open62541 from source:** 
+
+<br />**Installation of open62541 from source:** 
 
 (Will take a while on a Raspberry Pie 2/3)
 
@@ -34,7 +33,7 @@ Install dependencies:
 
 
 
-Navigate to /home/ or other preferable location, clone the repo:  
+Navigate to /home/ or other preferable location, clone the open62541 repo:  
 `git clone https://github.com/open62541/open62541.git`
 
 Preparing for cmake:  
@@ -74,6 +73,6 @@ Compile by linking to the open62541.c file:
 **pub-sub**  
 
 `gcc -std=c99 -pthread ../open62541.c pubsub_demo_pub.c -o pub`  
-`gcc -std=c99 -pthread -open62541 pubsub_demo_sub.c -o sub`  
+`gcc -std=c99 -pthread ../open62541.c pubsub_demo_sub.c -o sub`  
 
 Pub sub demos have not been verified to still function properly. 
