@@ -1,8 +1,0 @@
-{
-  "python.autoComplete.extraPaths": [
-    "/opt/ros/eloquent/lib/python3.6/site-packages"
-  ],
-  "files.associations": {
-    "open62541.h": "c"
-  }
-}
