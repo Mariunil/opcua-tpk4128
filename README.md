@@ -1,9 +1,11 @@
-These demos implements client-server and publisher-subscriber OPC UA communication using the OPC UA library [open62541](https://github.com/open62541/open62541.git).
+These demos implements client-server and publisher-subscriber the open-source OPC UA communication using the OPC UA library [open62541](https://github.com/open62541/open62541.git). <br /> <br />
 
 
 
-## Installation guide
 
+# Client-Server Demo
+
+## Installation
 The client-server demos can be run without any installation by linking to the amalgamated open62541.c/.h library files present in the repo.
 
 Navigate to /home/--username--/ or other preferable location and clone this repo: 
@@ -13,15 +15,34 @@ Navigate to /home/--username--/ or other preferable location and clone this repo
 If you don't have git installed:  
 `sudo apt-get install git`
 
+## Use
+Compile by linking to the open62541.c file (while inside opcua-tpk4128/client-server):  
+`gcc -std=c99 -pthread ../open62541.c cs_demo_client.c -o client`  
+`gcc -std=c99 -pthread ../open62541.c cs_demo_server.c -o server`  
 
-<br />
+The Client-Server demo showcase a simple use case where a device is counting passed pieces in, for instance, a assembly line and another device is interested in this information.
+
+The OPC UA server monitors a fake counting sensor and live-updates the "counted-pieces" field in its information model. This information model is then accessed by the OPC UA client, which in real-time prints the value of that field, i.e. the number of passed pieces.  
+
+The client are run by running the executable with the servers IP address (127.0.0.1 if running between two terminals):  
+`./client 127.0.0.1`
+
+The server can be run without any input parameters:  
+`./server` <br /> <br /> <br />
+
+
+
+# Pub-Sub Demo
+
+
+## Installation guide
+
 The pub-sub demos require the open62541 to be installed.   
 
 
 
 <br />**Installation of open62541 from source:** 
 
-(Will take a while on a Raspberry Pie 2/3)
 
 Install dependencies:  
 `sudo apt-get install git build-essential gcc pkg-config cmake python python-six` 
@@ -50,29 +71,20 @@ Fnd and enable `UA_ENABLE_PUBSUB`, `UA_ENABLE_PUBSUB_DELTAFRAMES`, `UA_ENABLE_PU
 When enabled, press c t configure, then q to leave
 
 Compile open62451 with make (while inside /wherever/open62451/build):  
+(Will take a while on a Raspberry Pie)  
 `make`  
 `sudo make install`  
    
 For some reason, "ua_pubsub_networkmessage.h" will be missing in the static library.
 Manually move it from open62541/src/pubsub to the static library (assuming you have cloned open26541 to /home/--username--).  
 
-`sudo cp /home/$USER/open62541/src/pubsub/ua_pubsub_networkmessage.h /usr/local/include/open62541/plugin`
+`sudo cp /home/$USER/open62541/src/pubsub/ua_pubsub_networkmessage.h /usr/local/include/open62541/plugin` <br /> <br /> <br />
 
-<br />
+
 
 ## Use
-
-**client-server**
-
-Compile by linking to the open62541.c file:  
-`gcc -std=c99 -pthread ../open62541.c cs_demo_client.c -o client`  
-`gcc -std=c99 -pthread ../open62541.c cs_demo_server.c -o server`  
-
-<br />
-
-**pub-sub**  
-
+Compile by linking to the open62541.c file (while inside opcua-tpk4128/pub-sub):  
 `gcc -std=c99 -pthread ../open62541.c pubsub_demo_pub.c -o pub`  
 `gcc -std=c99 -pthread ../open62541.c pubsub_demo_sub.c -o sub`  
 
-Pub sub demos have not been verified to still function properly. 
+(The pub-sub demos have not been verified to still be working.)
