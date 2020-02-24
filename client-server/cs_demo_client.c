@@ -13,7 +13,7 @@ of its "Piece counter" node. The client accesses this data and prints it insinde
 //NodeID of sensor-node
 #define COUNTER_NODE_ID 20305
 //polling interval for the client
-#define SLEEP_TIME_MILLIS 2000000
+#define POLLING_RATE 600000
 
 int main(int argc, const char *argv[])
 {
@@ -94,7 +94,7 @@ int main(int argc, const char *argv[])
               printf("\nUA_Variant_hasScalarType != OK\n");
             }
           }
-          usleep(SLEEP_TIME_MILLIS);
+          usleep(POLLING_RATE);
         }
       }
     }
