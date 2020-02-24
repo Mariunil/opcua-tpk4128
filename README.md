@@ -1,4 +1,4 @@
-These demos implements client-server and publisher-subscriber the open-source OPC UA communication using the OPC UA library [open62541](https://github.com/open62541/open62541.git). <br /> <br />
+The demo implements client-server communication using the open-source OPC UA library [open62541](https://github.com/open62541/open62541.git). <br /> <br />
 
 
 
