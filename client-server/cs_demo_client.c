@@ -24,7 +24,7 @@ int main(int argc, const char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  char end_point[256];
+  char end_point[256] = "";
   strcat(end_point, "opc.tcp://");
   strcat(end_point, argv[1]);
   strcat(end_point, ":4840");
